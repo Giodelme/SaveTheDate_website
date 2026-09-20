@@ -11,19 +11,17 @@ let opened = false;
 envelopeButton.addEventListener('click', () => {
   if (opened) return;
   opened = true;
-
+  envelopeButton.disabled = true;
   intro.classList.add('opening');
-
-  setTimeout(() => {
-    intro.classList.add('entering');
-  }, 1250);
-
+  setTimeout(() => intro.classList.add('entering'), 800);
   setTimeout(() => {
     site.classList.add('visible');
     site.setAttribute('aria-hidden', 'false');
+  }, 1550);
+  setTimeout(() => {
     intro.classList.add('hidden');
     document.body.style.overflow = '';
-  }, 2350);
+  }, 2150);
 });
 
 function openMenu() {
@@ -32,18 +30,13 @@ function openMenu() {
   menuButton.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
 }
-
 function closeMenu() {
   menuOverlay.classList.remove('open');
   menuOverlay.setAttribute('aria-hidden', 'true');
   menuButton.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
-
 menuButton.addEventListener('click', openMenu);
 menuClose.addEventListener('click', closeMenu);
 menuLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && menuOverlay.classList.contains('open')) closeMenu();
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#9ba88f" />
+  <meta name="theme-color" content="#8f9c86" />
   <title>Giorgio & Francesca — Save the Date</title>
   <meta name="description" content="Giorgio & Francesca — 2 luglio 2027, Desenzano del Garda" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,41 +12,23 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="intro" class="intro" aria-label="Invito digitale">
-    <div class="ambient ambient-a"></div>
-    <div class="ambient ambient-b"></div>
-
-    <button id="envelopeButton" class="envelope-stage" aria-label="Apri l'invito">
-      <div class="envelope" aria-hidden="true">
-        <div class="envelope-back"></div>
-        <div class="letter">
-          <div class="letter-inner">
-            <span>Giorgio & Francesca</span>
-            <strong>02 · 07 · 2027</strong>
-          </div>
-        </div>
-        <div class="envelope-side left"></div>
-        <div class="envelope-side right"></div>
-        <div class="envelope-front"></div>
-        <div class="flap"></div>
-        <div class="flower" aria-hidden="true">
-          <i></i><i></i><i></i><i></i><i></i>
-          <b></b>
-          <span class="leaf leaf-1"></span>
-          <span class="leaf leaf-2"></span>
-        </div>
-        <div class="wax-seal"><span>FG</span></div>
+  <section id="intro" class="intro" aria-label="Invito digitale">
+    <button id="envelopeButton" class="envelope-trigger" aria-label="Apri l'invito">
+      <div class="real-envelope" aria-hidden="true">
+        <img class="real-envelope-image" src="assets/envelope-realistic.png" alt="" />
+        <div class="flap-shadow"></div>
+        <div class="opening-glow"></div>
       </div>
       <span class="open-label">Apri l'invito</span>
     </button>
-  </div>
+    <div class="intro-white" aria-hidden="true"></div>
+  </section>
 
   <div id="site" class="site" aria-hidden="true">
     <header class="site-header">
       <a href="#benvenuti" class="brand" aria-label="Vai a Benvenuti">FG</a>
       <button id="menuButton" class="menu-button" aria-expanded="false" aria-controls="menuOverlay">
-        <span>Menu</span>
-        <i></i><i></i>
+        <span>Menu</span><i></i>
       </button>
     </header>
 
@@ -65,20 +47,13 @@
     <main>
       <section id="benvenuti" class="hero-section">
         <div class="hero-photo">
-          <div class="photo-placeholder">
-            <span>Inserite qui la vostra foto</span>
-          </div>
+          <div class="photo-placeholder"><span>Qui inseriremo la vostra foto</span></div>
           <div class="hero-overlay"></div>
         </div>
-
         <div class="hero-content">
           <p class="eyebrow">Save the date</p>
           <h1>Giorgio <em>&</em> Francesca</h1>
-          <div class="hero-details">
-            <p>2 luglio 2027</p>
-            <span></span>
-            <p>Desenzano del Garda</p>
-          </div>
+          <div class="hero-details"><p>2 luglio 2027</p><span></span><p>Desenzano del Garda</p></div>
           <p class="venue">Corte del Giglio</p>
           <p class="invite-line">Saremo felici di condividere con voi questo giorno speciale.</p>
           <a href="#cerimonia" class="scroll-link">Scopri i dettagli <span>↓</span></a>
@@ -87,41 +62,22 @@
 
       <section id="cerimonia" class="content-section sage-section">
         <div class="section-number">02</div>
-        <div class="section-copy">
-          <p class="eyebrow">Dettagli cerimonia</p>
-          <h2>Il giorno</h2>
-          <p>Qui inseriremo orari, indirizzo completo, programma della giornata e tutte le informazioni utili per la cerimonia e il ricevimento.</p>
-          <div class="placeholder-card">Contenuti da definire insieme</div>
-        </div>
+        <div class="section-copy"><p class="eyebrow">Dettagli cerimonia</p><h2>Il giorno</h2><p>Qui inseriremo orari, indirizzo completo, programma della giornata e tutte le informazioni utili per la cerimonia e il ricevimento.</p><div class="placeholder-card">Contenuti da definire insieme</div></div>
       </section>
 
       <section id="alloggi" class="content-section light-section">
         <div class="section-number">03</div>
-        <div class="section-copy">
-          <p class="eyebrow">Alloggi consigliati</p>
-          <h2>Dove soggiornare</h2>
-          <p>Una selezione di hotel, B&B e strutture comode per gli invitati, con eventuali codici convenzione e indicazioni sugli spostamenti.</p>
-          <div class="placeholder-card">Lista alloggi in arrivo</div>
-        </div>
+        <div class="section-copy"><p class="eyebrow">Alloggi consigliati</p><h2>Dove soggiornare</h2><p>Una selezione di hotel, B&B e strutture comode per gli invitati, con eventuali codici convenzione e indicazioni sugli spostamenti.</p><div class="placeholder-card">Lista alloggi in arrivo</div></div>
       </section>
 
       <section id="rsvp" class="content-section dark-section">
         <div class="section-number">04</div>
-        <div class="section-copy">
-          <p class="eyebrow">RSVP</p>
-          <h2>Conferma la tua presenza</h2>
-          <p>Qui collegheremo un modulo per la conferma, accompagnatore, eventuali bambini e preferenze o intolleranze alimentari.</p>
-          <button class="rsvp-button" type="button" disabled>Modulo in preparazione</button>
-        </div>
+        <div class="section-copy"><p class="eyebrow">RSVP</p><h2>Conferma la tua presenza</h2><p>Qui collegheremo un modulo per la conferma, accompagnatore, eventuali bambini e preferenze o intolleranze alimentari.</p><button class="rsvp-button" type="button" disabled>Modulo in preparazione</button></div>
       </section>
     </main>
 
-    <footer>
-      <span>Giorgio & Francesca</span>
-      <span>02.07.2027</span>
-    </footer>
+    <footer><span>Giorgio & Francesca</span><span>02.07.2027</span></footer>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
