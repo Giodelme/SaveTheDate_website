@@ -13,24 +13,29 @@ envelopeButton.addEventListener('click', () => {
   if (opened) return;
   opened = true;
 
-  // 1) apertura morbida della patta
-  intro.classList.add('opening');
+  // 1) Il sigillo si stacca e la busta prende vita
+  intro.classList.add('unsealing');
 
-  // 2) la camera entra fisicamente nell'apertura
+  // 2) La patta si solleva in modo più naturale
+  setTimeout(() => {
+    intro.classList.add('opening');
+  }, 320);
+
+  // 3) La camera entra lentamente nell'apertura della busta
   setTimeout(() => {
     intro.classList.add('entering');
-  }, 1180);
+  }, 1550);
 
-  // 3) la homepage emerge dalla luce interna della busta
+  // 4) La homepage compare mentre si entra nella luce interna
   setTimeout(() => {
     site.classList.add('visible');
     site.setAttribute('aria-hidden', 'false');
-  }, 2350);
+  }, 2550);
 
   setTimeout(() => {
     intro.classList.add('hidden');
     document.body.style.overflow = '';
-  }, 2850);
+  }, 3200);
 });
 
 function openMenu() {
