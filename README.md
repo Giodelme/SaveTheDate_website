@@ -1,13 +1,9 @@
-# Giorgio & Francesca — Save the Date V2
+# Save the Date — V7.3
 
-Versione con intro fotografica/realistica della busta e animazione di ingresso.
+Correzioni mirate:
+- cache busting su CSS/JS per vedere subito gli aggiornamenti su GitHub Pages;
+- intro: stessa busta e stesse dimensioni, sfondo pieno e uniforme senza bande laterali nette;
+- Benvenuti: foto della coppia più piccola e a sinistra, con bordo laterale realmente sfumato e testo più contrastato;
+- Dettagli cerimonia: foto meno zoomata, nessuna barra/divisorio tra immagine e contenuto, dissolvenza continua verso avorio.
 
-## Aggiornare GitHub Pages
-1. Estrai lo ZIP.
-2. Apri il repository `SaveTheDate_website` su GitHub.
-3. Vai su **Add file → Upload files**.
-4. Trascina `index.html`, `styles.css`, `script.js` e la cartella `assets`.
-5. Conferma la sostituzione dei file esistenti e premi **Commit changes**.
-6. Attendi 1-2 minuti e ricarica il link GitHub Pages con Ctrl+F5.
-
-Nota: il file `assets/envelope-realistic.png` è la nuova busta realistica usata nell'intro.
+Su GitHub sostituire `index.html`, `styles.css` e `script.js`.
