@@ -7,23 +7,30 @@ const menuClose = document.getElementById('menuClose');
 const menuLinks = menuOverlay.querySelectorAll('a');
 
 let opened = false;
+document.body.style.overflow = 'hidden';
 
 envelopeButton.addEventListener('click', () => {
   if (opened) return;
   opened = true;
 
+  // 1) apertura morbida della patta
   intro.classList.add('opening');
 
+  // 2) la camera entra fisicamente nell'apertura
   setTimeout(() => {
     intro.classList.add('entering');
-  }, 850);
+  }, 1180);
 
+  // 3) la homepage emerge dalla luce interna della busta
   setTimeout(() => {
     site.classList.add('visible');
     site.setAttribute('aria-hidden', 'false');
+  }, 2350);
+
+  setTimeout(() => {
     intro.classList.add('hidden');
     document.body.style.overflow = '';
-  }, 2050);
+  }, 2850);
 });
 
 function openMenu() {
