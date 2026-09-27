@@ -46,9 +46,9 @@ a { color:inherit; text-decoration:none; }
 .menu-footer { margin-top:28px; }
 
 .photo-section { min-height:100svh; position:relative; overflow:hidden; background-size:cover; background-position:center; }
-.hero-photo-bg { background-image:url('assets/benvenuti.jpeg'); background-position:center 60%; display:flex; align-items:flex-end; justify-content:center; }
-.ceremony-photo-bg { background-image:url('assets/cerimonia.jpeg'); background-position:center 42%; padding-top:46vh; }
-.alloggi-photo-bg { background-image:url('assets/alloggi.webp'); background-position:center 45%; padding-top:46vh; }
+.hero-photo-bg { background-image:url('benvenuti.jpeg'); background-position:center 60%; display:flex; align-items:flex-end; justify-content:center; }
+.ceremony-photo-bg { background-image:url('cerimonia.jpeg'); background-position:center 42%; padding-top:46vh; }
+.alloggi-photo-bg { background-image:url('alloggi.webp'); background-position:center 45%; padding-top:46vh; }
 .section-shade { position:absolute; inset:0; pointer-events:none; }
 .hero-shade { background:linear-gradient(180deg,rgba(37,45,39,.08) 0%,rgba(40,46,39,.08) 42%,rgba(244,239,231,.18) 55%,rgba(244,239,231,.98) 81%,#f4efe7 100%); }
 .content-shade { background:linear-gradient(180deg,rgba(39,47,39,.08) 0%,rgba(39,47,39,.05) 32%,rgba(244,239,231,.08) 46%,rgba(244,239,231,.92) 61%,#f4efe7 74%); }
