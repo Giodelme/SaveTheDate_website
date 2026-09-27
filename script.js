@@ -7,35 +7,23 @@ const menuClose = document.getElementById('menuClose');
 const menuLinks = menuOverlay.querySelectorAll('a');
 
 let opened = false;
-document.body.style.overflow = 'hidden';
 
 envelopeButton.addEventListener('click', () => {
   if (opened) return;
   opened = true;
 
-  // 1) Il sigillo si stacca e la busta prende vita
-  intro.classList.add('unsealing');
+  intro.classList.add('opening');
 
-  // 2) La patta si solleva in modo più naturale
-  setTimeout(() => {
-    intro.classList.add('opening');
-  }, 320);
-
-  // 3) La camera entra lentamente nell'apertura della busta
   setTimeout(() => {
     intro.classList.add('entering');
-  }, 1550);
+  }, 850);
 
-  // 4) La homepage compare mentre si entra nella luce interna
   setTimeout(() => {
     site.classList.add('visible');
     site.setAttribute('aria-hidden', 'false');
-  }, 2550);
-
-  setTimeout(() => {
     intro.classList.add('hidden');
     document.body.style.overflow = '';
-  }, 3200);
+  }, 2050);
 });
 
 function openMenu() {

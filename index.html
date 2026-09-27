@@ -13,16 +13,29 @@
 </head>
 <body>
   <div id="intro" class="intro" aria-label="Invito digitale">
-    <button id="envelopeButton" class="envelope-stage" aria-label="Apri l’invito">
-      <div class="envelope-scene" aria-hidden="true">
-        <div class="envelope-photo"></div>
-        <div class="seal-softener"></div>
-        <div class="envelope-interior"></div>
-        <div class="interior-paper"></div>
-        <div class="interior-shadow"></div>
-        <div class="flap-shadow"></div>
-        <div class="envelope-flap"></div>
-        <div class="entry-glow"></div>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <button id="envelopeButton" class="envelope-stage" aria-label="Apri l'invito">
+      <div class="envelope" aria-hidden="true">
+        <div class="envelope-back"></div>
+        <div class="letter">
+          <div class="letter-inner">
+            <span>Francesca & Giorgio</span>
+            <strong>02 · 07 · 2027</strong>
+          </div>
+        </div>
+        <div class="envelope-side left"></div>
+        <div class="envelope-side right"></div>
+        <div class="envelope-front"></div>
+        <div class="flap"></div>
+        <div class="flower" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i>
+          <b></b>
+          <span class="leaf leaf-1"></span>
+          <span class="leaf leaf-2"></span>
+        </div>
+        <div class="wax-seal"><span>FG</span></div>
       </div>
       <span class="open-label">Apri l’invito</span>
     </button>
@@ -72,13 +85,19 @@
         </div>
       </section>
 
-      <section id="cerimonia" class="content-section sage-section">
+      <section id="cerimonia" class="content-section sage-section ceremony-section">
         <div class="section-number">02</div>
-        <div class="section-copy">
+        <div class="section-copy ceremony-copy">
           <p class="eyebrow">Dettagli cerimonia</p>
-          <h2>Il giorno</h2>
-          <p>Qui inseriremo orari, indirizzo completo, programma della giornata e tutte le informazioni utili per la cerimonia e il ricevimento.</p>
-          <div class="placeholder-card">Contenuti da definire insieme</div>
+          <h2>Dettagli Cerimonia</h2>
+          <p class="ceremony-lead">La cerimonia si terrà alle 17:30 presso la Corte del Giglio, a Desenzano del Garda.</p>
+          <p class="ceremony-invite">Vi aspettiamo per condividere insieme questo momento speciale e celebrare l’inizio della nostra nuova avventura.</p>
+
+          <div class="venue-card">
+            <p class="venue-card-name">Corte del Giglio</p>
+            <p class="venue-card-address">Via Porte Rosse, 26<br>25015 Desenzano del Garda, Brescia</p>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Corte+del+Giglio+Via+Porte+Rosse+26+25015+Desenzano+del+Garda" target="_blank" rel="noopener noreferrer">Vedi indirizzo <span>↗</span></a>
+          </div>
         </div>
       </section>
 
