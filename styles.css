@@ -12,25 +12,69 @@ body { margin:0; font-family:"Manrope",sans-serif; background:var(--paper); colo
 button,a { font:inherit; }
 a { color:inherit; text-decoration:none; }
 
-/* INTRO: transizione V3 */
-.intro { position:fixed; inset:0; z-index:100; display:grid; place-items:center; overflow:hidden; background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.85),transparent 34%),linear-gradient(135deg,#e8e0d4 0%,#f6efe5 46%,#d9d2c5 100%); transition:opacity .9s ease,visibility .9s ease; }
-.intro::before { content:""; position:absolute; inset:0; opacity:.34; background-image:radial-gradient(rgba(58,63,55,.16) .6px,transparent .6px); background-size:4px 4px; }
-.ambient { position:absolute; width:42vw; height:42vw; max-width:560px; max-height:560px; border-radius:50%; opacity:.18; background:var(--sage); }
-.ambient-a { left:-18vw; top:-12vw; }
-.ambient-b { right:-18vw; bottom:-18vw; }
-.envelope-stage { appearance:none; border:0; background:transparent; cursor:pointer; display:grid; place-items:center; gap:22px; position:relative; z-index:2; color:var(--ink); width:min(92vw,980px); }
-.envelope { width:100%; aspect-ratio:4/3; border-radius:10px; overflow:hidden; background:url('envelope-realistic.png') center/cover no-repeat; box-shadow:0 30px 70px rgba(49,48,44,.22); transform-origin:center; transition:transform 1.45s cubic-bezier(.18,.78,.16,1),filter .9s ease; }
-.open-label { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#5f665d; padding:10px 14px; border-radius:999px; background:rgba(250,247,241,.62); backdrop-filter:blur(6px); }
+/* INTRO — busta invariata, sfondo full-screen coordinato */
+.intro {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:#eee7dc;
+  transition:opacity .9s ease,visibility .9s ease;
+}
+.intro::before {
+  content:"";
+  position:absolute;
+  inset:-5%;
+  background:url('envelope-realistic.png') center/cover no-repeat;
+  filter:blur(28px) brightness(1.03) saturate(.82);
+  transform:scale(1.08);
+  opacity:.72;
+}
+.intro::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(244,239,231,.34);
+  backdrop-filter:blur(1px);
+  pointer-events:none;
+  z-index:1;
+}
+.envelope-stage {
+  appearance:none;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  gap:22px;
+  position:relative;
+  z-index:2;
+  color:var(--ink);
+  width:min(92vw,980px);
+}
+.envelope {
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:10px;
+  overflow:hidden;
+  background:url('envelope-realistic.png') center/cover no-repeat;
+  box-shadow:0 30px 70px rgba(49,48,44,.22);
+  transform-origin:center;
+  transition:transform 1.45s cubic-bezier(.18,.78,.16,1),filter .9s ease;
+}
+.open-label { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#5f665d; padding:10px 14px; border-radius:999px; background:rgba(250,247,241,.72); backdrop-filter:blur(8px); }
 .intro.opening .envelope { transform:scale(1.04) translateY(-1.2%); filter:brightness(1.03); }
 .intro.opening .open-label { opacity:0; transition:opacity .3s ease; }
 .intro.entering .envelope { transform:scale(7.2) translateY(5%); filter:brightness(1.08) blur(1px); }
-.intro.entering::after { content:""; position:absolute; inset:0; background:#f8f5ef; opacity:0; animation:washIn .9s ease .45s forwards; z-index:3; }
+.intro.entering::after { background:#f8f5ef; opacity:0; animation:washIn .9s ease .45s forwards; z-index:3; }
 @keyframes washIn { to { opacity:1; } }
 .intro.hidden { opacity:0; visibility:hidden; pointer-events:none; }
 
 .site { opacity:0; visibility:hidden; transition:opacity .8s ease; }
 .site.visible { opacity:1; visibility:visible; }
-.site-header { position:fixed; top:0; left:0; right:0; z-index:30; display:flex; justify-content:space-between; align-items:center; padding:24px 34px; color:white; text-shadow:0 1px 12px rgba(0,0,0,.28); }
+.site-header { position:fixed; top:0; left:0; right:0; z-index:30; display:flex; justify-content:space-between; align-items:center; padding:24px 34px; color:white; text-shadow:0 1px 12px rgba(0,0,0,.38); }
 .brand { font-family:"Cormorant Garamond",serif; font-size:34px; letter-spacing:-.08em; }
 .menu-button { border:0; background:transparent; color:inherit; cursor:pointer; display:flex; align-items:center; gap:12px; text-transform:uppercase; font-size:11px; letter-spacing:.15em; }
 .menu-button i,.menu-button i::before,.menu-button i::after { width:24px; height:1px; background:currentColor; display:block; position:relative; content:""; }
@@ -45,27 +89,99 @@ a { color:inherit; text-decoration:none; }
 .menu-inner a:hover { transform:translateX(10px); opacity:.78; }
 .menu-footer { margin-top:28px; }
 
-.photo-section { min-height:100svh; position:relative; overflow:hidden; background-size:cover; background-position:center; }
-.hero-photo-bg { background-image:url('benvenuti.jpeg'); background-position:center 60%; display:flex; align-items:flex-end; justify-content:center; }
-.ceremony-photo-bg { background-image:url('cerimonia.jpeg'); background-position:center 42%; padding-top:46vh; }
-.alloggi-photo-bg { background-image:url('alloggi.webp'); background-position:center 45%; padding-top:46vh; }
-.section-shade { position:absolute; inset:0; pointer-events:none; }
-.hero-shade { background:linear-gradient(180deg,rgba(37,45,39,.08) 0%,rgba(40,46,39,.08) 42%,rgba(244,239,231,.18) 55%,rgba(244,239,231,.98) 81%,#f4efe7 100%); }
-.content-shade { background:linear-gradient(180deg,rgba(39,47,39,.08) 0%,rgba(39,47,39,.05) 32%,rgba(244,239,231,.08) 46%,rgba(244,239,231,.92) 61%,#f4efe7 74%); }
+.photo-section { min-height:100svh; position:relative; overflow:hidden; background-color:var(--ivory); }
+.section-shade { position:absolute; inset:0; pointer-events:none; z-index:1; }
 
-.hero-content { position:relative; z-index:2; width:min(94vw,980px); text-align:center; padding:48vh 24px 72px; color:var(--sage-deep); }
+/* BENVENUTI — foto più piccola a sinistra + fondo pieno */
+.hero-photo-bg {
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  isolation:isolate;
+}
+.hero-photo-bg::before {
+  content:"";
+  position:absolute;
+  inset:-4%;
+  z-index:-3;
+  background:url('benvenuti.jpeg') center/cover no-repeat;
+  filter:blur(30px) saturate(.9) brightness(.92);
+  transform:scale(1.08);
+}
+.hero-photo-bg::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background-image:url('benvenuti.jpeg');
+  background-repeat:no-repeat;
+  background-position:9% 42%;
+  background-size:auto 96%;
+}
+.hero-shade {
+  z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(32,39,33,.08) 0%,rgba(32,39,33,.02) 48%,rgba(244,239,231,.18) 78%,rgba(244,239,231,.38) 100%),
+    linear-gradient(180deg,rgba(37,45,39,.08) 0%,rgba(40,46,39,.05) 44%,rgba(244,239,231,.22) 58%,rgba(244,239,231,.96) 83%,#f4efe7 100%);
+}
+.hero-content {
+  position:relative;
+  z-index:2;
+  width:min(94vw,980px);
+  text-align:center;
+  padding:48vh 24px 72px;
+  color:#334034;
+}
 .hero-card .eyebrow { margin-bottom:18px; }
-.hero-content h1 { margin:0; font-family:"Cormorant Garamond",serif; font-size:clamp(58px,10vw,118px); font-weight:400; line-height:.86; }
+.hero-content h1 { margin:0; font-family:"Cormorant Garamond",serif; font-size:clamp(58px,10vw,118px); font-weight:400; line-height:.86; color:#354435; text-shadow:0 1px 0 rgba(255,255,255,.22); }
 .hero-content h1 em { font-weight:400; font-style:italic; }
 .eyebrow { text-transform:uppercase; letter-spacing:.24em; font-size:11px; margin:0 0 18px; }
-.botanical-rule { display:flex; align-items:center; justify-content:center; gap:14px; margin:25px auto 22px; color:var(--sage-dark); }
-.botanical-rule span { width:80px; height:1px; background:currentColor; opacity:.55; }
+.botanical-rule { display:flex; align-items:center; justify-content:center; gap:14px; margin:25px auto 22px; color:#596a57; }
+.botanical-rule span { width:80px; height:1px; background:currentColor; opacity:.65; }
 .botanical-rule b { font-family:serif; font-size:28px; font-weight:400; }
-.hero-details { display:flex; justify-content:center; align-items:center; gap:18px; margin-top:12px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; }
-.hero-details span { width:34px; height:1px; background:rgba(70,81,69,.45); }
-.venue { font-family:"Cormorant Garamond",serif; font-size:30px; margin:15px 0 8px; }
-.invite-line { margin:0 auto; max-width:590px; font-family:"Cormorant Garamond",serif; font-size:24px; font-style:italic; line-height:1.35; color:#697663; }
-.scroll-link { display:inline-flex; gap:14px; align-items:center; margin-top:30px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+.hero-details { display:flex; justify-content:center; align-items:center; gap:18px; margin-top:12px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#344034; }
+.hero-details span { width:34px; height:1px; background:rgba(52,64,52,.58); }
+.venue { font-family:"Cormorant Garamond",serif; font-size:30px; margin:15px 0 8px; color:#344034; }
+.invite-line { margin:0 auto; max-width:590px; font-family:"Cormorant Garamond",serif; font-size:24px; font-style:italic; line-height:1.35; color:#556653; }
+.scroll-link { display:inline-flex; gap:14px; align-items:center; margin-top:30px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#344034; }
+
+/* CERIMONIA — immagine con più respiro, senza crop aggressivo */
+.ceremony-photo-bg {
+  padding-top:min(58vw,620px);
+  isolation:isolate;
+}
+.ceremony-photo-bg::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:min(58vw,620px);
+  z-index:-3;
+  background:url('cerimonia.jpeg') center/cover no-repeat;
+  filter:blur(24px) brightness(.88);
+  transform:scale(1.05);
+}
+.ceremony-photo-bg::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:min(58vw,620px);
+  z-index:-2;
+  background:url('cerimonia.jpeg') center center/contain no-repeat;
+}
+.ceremony-photo-bg .content-shade {
+  height:min(58vw,620px);
+  bottom:auto;
+  z-index:-1;
+  background:linear-gradient(180deg,rgba(39,47,39,.04) 0%,rgba(39,47,39,.01) 62%,rgba(244,239,231,.7) 91%,#f4efe7 100%);
+}
+
+/* ALLOGGI */
+.alloggi-photo-bg { background:url('alloggi.webp') center 45%/cover no-repeat; padding-top:46vh; }
+.content-shade { background:linear-gradient(180deg,rgba(39,47,39,.08) 0%,rgba(39,47,39,.05) 32%,rgba(244,239,231,.08) 46%,rgba(244,239,231,.92) 61%,#f4efe7 74%); }
 
 .photo-content-panel { position:relative; z-index:2; min-height:54vh; display:grid; grid-template-columns:.28fr 1fr; gap:58px; align-items:start; padding:90px max(6vw,28px) 110px; background:linear-gradient(180deg,rgba(244,239,231,.02),rgba(244,239,231,.94) 12%,#f4efe7 35%); color:var(--ink); }
 .section-number { font-family:"Cormorant Garamond",serif; font-size:clamp(62px,9vw,120px); opacity:.13; line-height:1; margin:0; }
@@ -88,15 +204,30 @@ footer { min-height:150px; display:flex; justify-content:space-between; align-it
 @media (max-width:760px) {
   .site-header { padding:20px 18px; }
   .envelope-stage { width:94vw; }
-  .hero-photo-bg { background-position:center 54%; }
-  .hero-content { padding:48vh 18px 52px; }
+  .intro::before { filter:blur(18px) brightness(1.04) saturate(.82); }
+
+  .hero-photo-bg::after {
+    background-position:34% 20%;
+    background-size:auto 78%;
+  }
+  .hero-shade {
+    background:linear-gradient(180deg,rgba(37,45,39,.04) 0%,rgba(40,46,39,.02) 42%,rgba(244,239,231,.12) 52%,rgba(244,239,231,.96) 73%,#f4efe7 100%);
+  }
+  .hero-content { padding:43vh 18px 52px; }
   .hero-content h1 { font-size:clamp(54px,16vw,82px); }
   .hero-details { flex-direction:column; gap:8px; }
   .hero-details span { width:1px; height:14px; }
   .venue { font-size:26px; }
   .invite-line { font-size:21px; }
   .botanical-rule span { width:52px; }
-  .ceremony-photo-bg,.alloggi-photo-bg { padding-top:42vh; }
+
+  .ceremony-photo-bg { padding-top:72vw; }
+  .ceremony-photo-bg::before,
+  .ceremony-photo-bg::after,
+  .ceremony-photo-bg .content-shade { height:72vw; }
+  .ceremony-photo-bg::after { background-size:contain; background-position:center center; }
+
+  .alloggi-photo-bg { padding-top:42vh; }
   .photo-content-panel { grid-template-columns:1fr; gap:12px; padding:66px 24px 86px; }
   .section-number { font-size:72px; }
   .section-copy h2 { font-size:clamp(48px,13vw,68px); }
